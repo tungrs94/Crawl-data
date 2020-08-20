@@ -1,13 +1,13 @@
-import requests
 import json
 import sys
+
+import requests
 
 
 def get_repos(user):
     '''Get all GitHub repositories of user
     '''
-    r = requests.get("http://api.github.com/users/{}/repos"
-                     .format(user))
+    r = requests.get("http://api.github.com/users/{}/repos".format(user))
     data = json.loads(r.text)
     repos = [item['name'] for item in data]
 
